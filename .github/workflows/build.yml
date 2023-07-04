@@ -32,11 +32,6 @@ jobs:
           override: true
       - name: Build
         run: cargo build --release --verbose -Z unstable-options --out-dir artifacts --no-default-features
-      - name: Hash
-        shell: bash
-        run: |
-          find artifacts -type f | xargs sha1sum > artifacts/sha1sum
-          find artifacts -type f | xargs md5sum > artifacts/md5sum
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
