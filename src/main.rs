@@ -76,11 +76,11 @@ struct Args {
     speed: u32,
 
     /// The frames to skip at beginning
-    #[clap(long, default_value_t = 40)]
+    #[clap(long, default_value_t = 90)]
     skip: u32,
 
     /// The frames to record.
-    #[clap(long, default_value_t = 100)]
+    #[clap(long, default_value_t = 180)]
     frames: u32,
 
     /// The background color of red
