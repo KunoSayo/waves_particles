@@ -425,9 +425,9 @@ fn main() -> anyhow::Result<()> {
             depth_or_array_layers: 1,
         });
 
-        let task = queue.submit(once(encoder.finish()));
+        let _ = queue.submit(once(encoder.finish()));
         staging_belt.recall();
-        device.poll(Maintain::WaitForSubmissionIndex(task));
+        // device.poll(Maintain::WaitForSubmissionIndex(task));
 
         let slice = screen_buffer.slice(..);
         slice.map_async(MapMode::Read, |_| {});
