@@ -110,7 +110,9 @@ fn main() -> anyhow::Result<()> {
         red, green, blue, alpha
     } = Args::parse();
 
-    let shader_path = current_exe().unwrap().join("../shader.wgsl");
+    let mut shader_path = current_exe().unwrap();
+    shader_path.pop();
+    let shader_path = shader_path.join("shader.wgsl");
     let shader_source = std::fs::read_to_string(&shader_path)
         .context(format!("Read shader failed for path {:?}", shader_path))?;
 
